@@ -11,14 +11,14 @@ import paymentRouter from './route/paymentRoute.js';
 import reviewRouter from './route/reviewRoute.js';
 
 
-const port = process.env.PORT
+const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json()); //Middleware to parse JSON bodies
 app.use(cookieParser()); //Middleware to parse cookies
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     credentials:true
 }))
 
